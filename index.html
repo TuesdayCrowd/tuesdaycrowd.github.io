@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tuesday Crowd — Indoor Electric Kart Racing, Coming to Naperville</title>
+  <meta name="description" content="Indoor electric kart racing coming to Naperville, Illinois. Two tracks under one roof plus a seasonal outdoor circuit. Veteran-owned.">
+
+  <meta property="og:title" content="Tuesday Crowd — Indoor Electric Kart Racing">
+  <meta property="og:description" content="Coming to Naperville, Illinois. Two indoor tracks plus a seasonal outdoor circuit. Veteran-owned.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tuesdaycrowd.com">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!--
+    Tuesday Crowd landing page
+    Released under The Unlicense — https://unlicense.org/
+    Free for any use, no attribution required.
+  -->
+
+  <style>
+    :root {
+      --bg: #0d0c08;
+      --surface: #16140f;
+      --line: #2a2722;
+      --text: #f4f1ea;
+      --muted: #918b7e;
+      --accent: #fbd817;
+      --accent-soft: rgba(251, 216, 23, 0.14);
+
+      --font-display: 'Big Shoulders Display', 'Arial Black', sans-serif;
+      --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+      --max-width: 1180px;
+      --gutter-x: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.55;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Hi-vis caution stripe at top */
+    .stripes {
+      height: 6px;
+      width: 100%;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        var(--accent) 0,
+        var(--accent) 10px,
+        var(--bg) 10px,
+        var(--bg) 22px
+      );
+    }
+
+    /* Top bar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem var(--gutter-x);
+      border-bottom: 1px solid var(--line);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .wordmark {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .wordmark .dot { color: var(--accent); }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .status::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-soft); }
+      50% { opacity: 0.55; box-shadow: 0 0 0 8px transparent; }
+    }
+
+    /* Hero */
+    .hero {
+      padding: clamp(4rem, 12vh, 7rem) var(--gutter-x) clamp(3rem, 8vh, 5rem);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.25rem, 12vw, 9.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+    }
+    .hero h1 .accent {
+      color: var(--accent);
+      display: inline-block;
+    }
+    .hero .tagline {
+      margin-top: 1.75rem;
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      color: var(--muted);
+      max-width: 40rem;
+      line-height: 1.55;
+    }
+
+    /* About */
+    .about {
+      padding: clamp(3rem, 8vh, 5rem) var(--gutter-x);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      position: sticky;
+      top: 1rem;
+    }
+    .about p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+    .about p + p { margin-top: 1.25rem; }
+
+    /* Specs grid */
+    .specs {
+      padding: clamp(3rem, 8vh, 5rem) var(--gutter-x);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    .spec {
+      border-top: 2px solid var(--accent);
+      padding-top: 1.5rem;
+    }
+    .spec .num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 5vw, 4rem);
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+    .spec .spec-label {
+      margin-top: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .spec .detail {
+      margin-top: 0.85rem;
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* CTA */
+    .cta {
+      padding: clamp(3.5rem, 9vh, 6rem) var(--gutter-x);
+      border-top: 1px solid var(--line);
+      text-align: center;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+    }
+    .cta h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+    .cta p {
+      margin-top: 1.25rem;
+      color: var(--muted);
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .email-link {
+      display: inline-block;
+      margin-top: 2.25rem;
+      padding: 1.1rem 2.5rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      border: 2px solid var(--accent);
+    }
+    .email-link:hover, .email-link:focus-visible {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--text);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem var(--gutter-x);
+      border-top: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+    footer a:hover { color: var(--accent); }
+
+    /* Page load motion */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero h1 { animation: fadeUp 0.7s ease-out 0.1s backwards; }
+    .hero .tagline { animation: fadeUp 0.7s ease-out 0.3s backwards; }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .about { grid-template-columns: 1fr; }
+      .specs { grid-template-columns: 1fr; gap: 2rem; }
+      .section-label { position: static; }
+      .status { font-size: 0.68rem; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Selection */
+    ::selection { background: var(--accent); color: var(--bg); }
+  </style>
+</head>
+<body>
+  <div class="stripes" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wordmark">Tuesday Crowd<span class="dot">.</span></div>
+    <div class="status">Pre-launch · Naperville, IL</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>
+        Indoor electric<br>
+        kart racing<span class="accent">.</span>
+      </h1>
+      <p class="tagline">
+        Two tracks under one roof. A seasonal outdoor circuit. Coming to Naperville, Illinois — the west suburbs' first dedicated electric karting venue.
+      </p>
+    </section>
+
+    <section class="about" aria-labelledby="about-label">
+      <div>
+        <div class="section-label" id="about-label">What we're building</div>
+      </div>
+      <div>
+        <p>Two indoor electric karting tracks — an intermediate circuit and a multi-level pro track with elevation changes — plus a seasonal outdoor circuit operating mid-April through mid-October during daylight hours.</p>
+        <p>Concessions, beer and wine, an arcade, and private rooms for birthdays, corporate events, and league racing. Powered by Ferkart electric karts with swappable batteries: quiet enough to operate indoors, fast enough to feel like the real thing.</p>
+      </div>
+    </section>
+
+    <section class="specs" aria-label="At a glance">
+      <div class="spec">
+        <div class="num">02</div>
+        <div class="spec-label">Indoor tracks</div>
+        <div class="detail">One multi-level pro track. One intermediate circuit. Year-round operation.</div>
+      </div>
+      <div class="spec">
+        <div class="num">01</div>
+        <div class="spec-label">Outdoor circuit</div>
+        <div class="detail">Seasonal. Mid-April through mid-October. Daylight hours only.</div>
+      </div>
+      <div class="spec">
+        <div class="num">'27</div>
+        <div class="spec-label">Target opening</div>
+        <div class="detail">Naperville, IL. Subject to lease, permits, and the usual realities.</div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-heading">
+      <h2 id="cta-heading">Want to know when we open?</h2>
+      <p>Drop us a line. We're keeping a list.</p>
+      <a href="mailto:hello@tuesdaycrowd.com?subject=Keep%20me%20posted" class="email-link" rel="noopener">hello@tuesdaycrowd.com</a>
+    </section>
+  </main>
+
+  <footer>
+    <div>Tuesday Crowd LLC · Veteran-owned · Naperville, IL</div>
+    <div>&copy; 2026 · Site released under <a href="https://unlicense.org/" rel="noopener">The Unlicense</a></div>
+  </footer>
+</body>
+</html>
